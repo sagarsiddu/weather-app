@@ -1,12 +1,15 @@
 package com.example.WeatherForecast.model;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "weather_response")
 @Data
-@NoArgsConstructor
 public class WeatherResponse {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String city;
     private String description;
     private double temperature;
@@ -18,4 +21,5 @@ public class WeatherResponse {
         this.temperature = temperature;
         this.humidity = humidity;
     }
+
 }
