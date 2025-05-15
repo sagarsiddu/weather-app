@@ -1,17 +1,17 @@
 package com.example.WeatherForecast.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
-@Data
-@Entity
-@Table(name = "weather_responses")
-@NoArgsConstructor
+//@Data
+//@Entity
+//@Table(name = "weather_responses")
+//@NoArgsConstructor
 public class WeatherResponse {
-    @Id
+    //@Id
     private Long id;
     private String city;
     private String description;
