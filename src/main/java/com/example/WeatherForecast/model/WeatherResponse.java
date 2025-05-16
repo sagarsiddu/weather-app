@@ -18,10 +18,10 @@ public class WeatherResponse {
     private double temperature;
     private int humidity;
 
-    public WeatherResponse(String city, String description, double temperature, int humidity) {
+    public WeatherResponse(String city, double v) {
         this.city = city;
-        this.description = description;
-        this.temperature = temperature;
-        this.humidity = humidity;
+        this.temperature = v;
     }
+
+
 }
