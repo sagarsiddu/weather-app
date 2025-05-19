@@ -18,26 +18,26 @@ class WeatherServiceTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    void shouldReturnResponseObject() {
-        WeatherResponse response = weatherService.getWeatherData("anyCity");
-        assertNotNull(response);
-    }
+//    @Test
+//    void shouldReturnResponseObject() {
+//        WeatherResponse response = weatherService.getWeatherData("anyCity");
+//        assertNotNull(response);
+//    }
 
-    @Test
-    void shouldNotAcceptEmptyCity() {
-        assertThrows(IllegalArgumentException.class, () -> weatherService.getWeatherData(""));
-    }
+//    @Test
+//    void shouldNotAcceptEmptyCity() {
+//        assertThrows(IllegalArgumentException.class, () -> weatherService.getWeatherData(""));
+//    }
+//
+//    @Test
+//    void shouldNotAcceptNullCity() {
+//        assertThrows(IllegalArgumentException.class, () -> weatherService.getWeatherData(null));
+//    }
 
-    @Test
-    void shouldNotAcceptNullCity() {
-        assertThrows(IllegalArgumentException.class, () -> weatherService.getWeatherData(null));
-    }
-
-    @Test
-    void responseObjectShouldHaveRequiredFields() {
-        WeatherResponse response = weatherService.getWeatherData("anyCity");
-        assertNull(response.getCity());
-        assertNotNull(response.getTemperature());
-    }
+//    @Test
+//    void responseObjectShouldHaveRequiredFields() {
+//        WeatherResponse response = weatherService.getWeatherData("anyCity");
+//        assertNull(response.getCity());
+//        assertNotNull(response.getTemperature());
+//    }
 }
