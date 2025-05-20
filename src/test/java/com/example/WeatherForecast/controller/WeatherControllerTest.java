@@ -43,14 +43,6 @@ class WeatherControllerTest {
                 .andExpect(content().contentType("application/json"));
     }
 
-//    @Test
-//    void responseShouldHaveRequiredFields() throws Exception {
-//        mockMvc.perform(get("/api/weather")
-//                        .param("city", "anyCity"))
-//                .andExpect(jsonPath("$.city").exists())
-//                .andExpect(jsonPath("$.temperature").exists());
-//    }
-
     @Test
     void shouldReturnOkStatus() throws Exception {
         mockMvc.perform(get("/api/weather?city=London"))

@@ -1,12 +1,12 @@
 package com.example.WeatherForecast.controller;
 
-import com.example.WeatherForecast.model.WeatherResponse;
 import com.example.WeatherForecast.service.WeatherService;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/weather")
 public class WeatherController {
@@ -17,13 +17,10 @@ public class WeatherController {
         this.service = service;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<WeatherResponse> getWeather(@RequestParam String city) {
-        WeatherResponse response = new WeatherResponse(city, 20.0);
-        return ResponseEntity.ok(response);
+    @GetMapping("{city}")
+    public ResponseEntity<Map<String, Object>>getWeather(@PathVariable String city) {
+        return service.getWeatherByCity(city);
+
     }
-
-
-
 
 }
