@@ -6,8 +6,12 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
+
+import java.util.Collection;
+import java.util.Map;
 
 @Aspect
 @Component
@@ -32,7 +36,7 @@ public class LoggingAspect {
             stopWatch.stop();
 
             logger.info("Completed {}.{} in {} ms with result: {}",
-                    className, methodName, stopWatch.getTotalTimeMillis(), result);
+                    className, methodName, stopWatch.getTotalTimeMillis(), formatResult(result));
 
             return result;
         } catch (Exception e) {
@@ -41,4 +45,40 @@ public class LoggingAspect {
             throw e;
         }
     }
+
+    private String formatResult(Object result) {
+        switch (result) {
+            case null -> {
+                return "null";
+            }
+            case ResponseEntity<?> responseEntity -> {
+                Object body = responseEntity.getBody();
+                int statusCode = responseEntity.getStatusCode().value();
+
+                if (body instanceof Map<?, ?> map) {
+                    return String.format("Status: %d, Response size: %d entries", statusCode, map.size());
+                } else if (body instanceof Collection<?> collection) {
+                    return String.format("Status: %d, Response size: %d items", statusCode, collection.size());
+                } else if (body != null) {
+                    return String.format("Status: %d, Response type: %s", statusCode, body.getClass().getSimpleName());
+                } else {
+                    return String.format("Status: %d, Empty response", statusCode);
+                }
+            }
+
+
+            // For non-ResponseEntity results
+            case Collection<?> collection -> {
+                return String.format("Collection with %d items", collection.size());
+            }
+            case Map<?, ?> map -> {
+                return String.format("Map with %d entries", map.size());
+            }
+            default -> {
+            }
+        }
+
+        return result.toString();
+    }
+
 }

@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.5'
-	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'com.example'
@@ -37,6 +37,28 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	implementation 'org.slf4j:slf4j-api'
 
+	// Existing dependencies...
+	implementation 'org.javers:javers-spring-boot-starter-sql:7.3.1'
+
+	// JSON Processing
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+	implementation 'com.google.code.gson:gson:2.10.1'
+
+	// Utilities
+	implementation 'org.apache.commons:commons-lang3:3.14.0'
+	implementation 'org.slf4j:slf4j-api'
+
+	// Development Tools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	implementation 'com.google.code.gson:gson:2.10.1'
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	testImplementation 'org.mockito:mockito-core'
 	testImplementation 'org.mockito:mockito-junit-jupiter'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api'
@@ -50,6 +72,12 @@ dependencies {
 	testImplementation 'ch.qos.logback:logback-classic'
 	testImplementation 'org.aspectj:aspectjweaver'
 
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'com.h2database:h2'
+	testImplementation 'org.assertj:assertj-core'
+	testImplementation 'org.hamcrest:hamcrest'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
 
