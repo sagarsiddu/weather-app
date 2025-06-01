@@ -14,15 +14,22 @@ import java.util.Map;
 public class WeatherController {
 
     @Autowired
-    private final WeatherService weatherService;
+    private final WeatherService service;
 
     public WeatherController(WeatherService weatherService) {
-        this.weatherService = weatherService;
+        this.service = service;
     }
 
     @GetMapping("/{city}")
     public ResponseEntity<Map<String, Object>> getWeather(@PathVariable String city) {
-        return weatherService.getWeatherByCity(city);
+        return service.getWeatherByCity(city);
     }
 }
 
+    // Save weather data to DB
+    @PostMapping("/save")
+    public WeatherResponse saveWeather(@RequestBody WeatherResponse weatherResponse) {
+        return service.saveWeatherData(weatherResponse);
+    }
+
+}
