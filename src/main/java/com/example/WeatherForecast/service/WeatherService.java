@@ -1,17 +1,11 @@
 package com.example.WeatherForecast.service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import com.example.WeatherForecast.exception.WeatherServiceException;
 import com.example.WeatherForecast.model.WeatherResponse;
 import com.example.WeatherForecast.repo.WeatherRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
-
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
