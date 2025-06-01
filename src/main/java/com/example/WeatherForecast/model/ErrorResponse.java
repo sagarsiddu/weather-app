@@ -1,6 +1,7 @@
 package com.example.WeatherForecast.model;
 
 import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

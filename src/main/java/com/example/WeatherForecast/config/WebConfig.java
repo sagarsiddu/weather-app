@@ -1,23 +1,14 @@
 package com.example.WeatherForecast.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig {
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        // Allow CORS requests from React's development server
-        registry.addMapping("/**").allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT").allowedHeaders("*");
-    }
-
-
 }

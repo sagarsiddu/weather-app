@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
+
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,6 +31,7 @@ public class WeatherService {
         this.restTemplate = restTemplate;
         this.weatherRepository = weatherRepository;
     }
+
     public ResponseEntity<Map<String, Object>> getWeatherByCity(String city) {
         if (city == null || city.trim().isEmpty()) {
             throw new WeatherServiceException("City name cannot be null or empty");
